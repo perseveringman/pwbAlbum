@@ -1,0 +1,148 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-05-19 15:57:05
+ * @version $Id$
+ */
+
+
+ /**
+  *拼图布局样式 
+  */
+
+#add{
+	display: block;
+	margin: 0 auto;
+	width:130px;
+	height: 50px;
+	line-height: 30px;
+	background: transparent;
+	font-weight: bold;
+	border: 2px solid #333;
+	border-radius: 20px;
+	color:#333;
+	font-size: 16px;
+}
+#puzzleContainer{
+  font-size: 0;
+	position: relative;
+  height: 100%;
+/*	width:1200px;
+	height: 1000px;*/
+	margin:0;
+/*	border: 2px solid #333;*/
+  /*overflow: hidden;*/
+}
+#puzzleContainer img{
+  	height: 100%;
+  	width: 100%;
+  	object-fit: cover;
+  	object-position: center;
+
+}
+.waterfall{
+  float: left;
+
+}
+.photo_1 img{
+  max-height: 500px;
+}
+/* for two image boxes selected */
+.photo_2:first-child{
+	float:left;
+  width: 66.6%;
+  height: 100%;
+-webkit-clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+}
+.photo_2:last-child{
+	float:left;
+position: absolute;
+  width: 66.6%;
+  height: 100%;
+  left:33.3%;
+-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+}
+/* for three image boxes selected */
+.photo_3:nth-child(1){
+  float: left;
+  width: 66.6%;
+  height: 100%;
+}
+.photo_3:nth-child(2){
+  float: left;
+  width: 33.4%;
+  height: 50%;
+}
+.photo_3:nth-child(3){
+  float: left;
+  width: 33.4%;
+  height: 50%;
+}
+/* for four image boxes selected */
+.photo_4{
+  float: left;
+  width: 50%;
+  height: 50%;
+}
+/* for five image boxes selected */
+.photo_5 {
+  position: absolute;
+}
+.photo_5:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 66.6%;
+  height: 66.6%;
+}
+.photo_5:nth-child(2) {
+  top: 0;
+  right: 0;
+  width: 33.4%;
+  height:66.6%;
+}
+.photo_5:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 33.3%;
+  height: 33.4%;
+}
+.photo_5:nth-child(4) {
+  bottom: 0;
+  left: 33.333%;
+  width: 33.333%;
+  height: 33.4%;
+}
+.photo_5:nth-child(5) {
+  bottom: 0;
+  left: 0;
+  width: 33.333%;
+  height: 33.4%;
+}
+/* for six image boxex selected */
+.photo_6 {
+  float: left;
+  width: 33.3%;
+  height: 33.3%;
+}
+.photo_6:nth-child(1) {
+  width: 66.6%;
+  height: 66.6%;
+}
+.photo_6:nth-child(2),
+.photo_6:nth-child(3),
+.photo_6:nth-child(4) {
+  float: right;
+  width: 33.4%;
+}
+
+ /**
+  *方形布局样式 
+  */
+.square{
+  float: left;
+  width:100px;
+  height: 100px;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="setting.css">
+<link rel="stylesheet" type="text/css" href="pwbAlbum.css">
+<style type="text/css">
+
+
+</style>
+</head>
+<body>
+    <header>
+    	<nav>
+    		<div id="nav_title">
+    			<a  href="">pwbAlbum</a>
+    		</div>
+    		<div id="nav_list">
+    			<ul>
+    				<li> <a href="#"> About</a> </li>
+    				<li> <a href="#"> Intro</a> </li>
+    			</ul>
+    		</div>
+    	</nav>
+    </header>
+    <main class="clear">
+    	<article id="content">
+    		<section id="puzzleContainer">
+    			
+    		</section>
+    	</article>
+    	<aside>
+            <h2>配置选项</h2>
+            <ul id="albumType">
+                <li id="square">方形布局</li>
+                <li id="puzzle">拼图布局</li>
+                <li id="waterfall">瀑布布局</li>
+                <li id="barrel">木桶布局</li>
+            </ul>
+    		<ul>
+                <li><label for="Cols">Cols:</label><input type="number" id="Cols" placeholder=""></li>
+                <li><label for="gutter">Gutter：</label><input type="number" id="gutter"></li>
+                <li>
+                    <label for="fullscreen">Fullscreen：</label>
+                    <select id="fullscreen">
+                        <option >true</option>
+                        <option selected> false</option>
+                    </select>               
+                </li>
+                <li><button id="addImage">Add</button><input type="text" id="imgUrl" placeholder=""></li>
+            </ul>
+    	</aside>
+    </main>
+    <footer></footer>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="pwbAlbum.js" ></script>
+    <script type="text/javascript" >
+    function getRandomImg(argument) {
+        var randomColor = ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
+        var pWidth = (Math.random() * 6 + 2) *100;
+        var randomSize = (Math.random() * 6 + 2) * 100 + 'X' +
+            (Math.random() * 5 + 2) * 100;
+        var src = 'http://placehold.it/' + randomSize + '/' + randomColor + '/fff';
+        return src;
+    }
+
+    var imgs = [];
+    for (var i = 0; i < 1; i++) {
+        imgs.push(getRandomImg());
+    }
+    var options = {
+        layout: 'SQUARE',
+        images:[],
+        gutter:0,
+        boxSelector:'puzzleContainer',
+        photoSelector:'photoBox',
+        cols:4,
+        minH: 200,
+        maxH: 400,
+        minNum: 3,
+        maxNum: 6
+    }
+    options.images = imgs;
+    var pwbAlbum = new PwbAlbum(options);
+    pwbAlbum.setImage(imgs,options);
+    $('#addImage').click(function(){
+        var url = $('#imgUrl').val();
+        options.images.push(url);
+
+        pwbAlbum.setImage(imgs,options);
+        $('#imgUrl').val(getRandomImg());
+    });
+    $('#Cols').change(function(){
+        options.cols = $('#Cols').val();
+        pwbAlbum.setImage(imgs,options);
+    });
+    $('#square').click(function(){
+        options.layout = 'SQUARE';
+        pwbAlbum.setImage(imgs,options);
+    })
+    $('#puzzle').click(function(){
+        options.layout = 'PUZZLE';
+        pwbAlbum.setImage(imgs,options);
+    })    
+    $('#waterfall').click(function(){
+        options.layout = 'WATERFALL';
+        pwbAlbum.setImage(imgs,options);
+    })
+    $('#barrel').click(function(){
+        options.layout = 'BARREL';
+        pwbAlbum.setImage(imgs,options);
+    })
+    $('#gutter').change(function(){
+        if($('#gutter').val()>50){
+            alert('间距不能超过50！');
+            $('#gutter').val(50);
+        }
+        else if($('#gutter').val()<0){
+            alert('间距不能小于0！');
+            $('#gutter').val(0);
+        }
+        options.gutter = $('#gutter').val();
+        pwbAlbum.setImage(imgs,options);
+    })
+    $('#imgUrl').val(getRandomImg());
+    </script>
+</body>
+</html>
