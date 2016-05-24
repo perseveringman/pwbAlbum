@@ -19,7 +19,7 @@
     <header>
     	<nav>
     		<div id="nav_title">
-    			<a  href="">pwbAlbum</a>
+    			<a  href="index.html">pwbAlbum</a>
     		</div>
     		<div id="nav_list">
     			<ul>
@@ -31,104 +31,84 @@
     </header>
     <main class="clear">
     	<article id="content">
-    		<section id="puzzleContainer">
+    		<section id="puzzleContainer" style="position: absolute;left:50%;transform:translateX(-50%);width:800px;">
     			
     		</section>
     	</article>
     	<aside>
             <h2>配置选项</h2>
             <ul id="albumType">
-                <li id="square">方形布局</li>
+                <li id="square" class="active">方形布局</li>
                 <li id="puzzle">拼图布局</li>
                 <li id="waterfall">瀑布布局</li>
                 <li id="barrel">木桶布局</li>
             </ul>
-    		<ul>
-                <li><label for="Cols">Cols:</label><input type="number" id="Cols" placeholder=""></li>
-                <li><label for="gutter">Gutter：</label><input type="number" id="gutter"></li>
-                <li>
-                    <label for="fullscreen">Fullscreen：</label>
-                    <select id="fullscreen">
-                        <option >true</option>
-                        <option selected> false</option>
-                    </select>               
-                </li>
-                <li><button id="addImage">Add</button><input type="text" id="imgUrl" placeholder=""></li>
-            </ul>
+            <section id="common">
+                <ul>
+                    <li>
+                        <button id="addImage">Add</button>
+                        <input type="text" id="imgUrl" >
+                    </li>
+                    <li>
+                        <label for="fullscreen">Fullscreen：</label>
+                        <select id="fullscreen">
+                            <option selected>true</option>
+                            <option > false</option>
+                        </select>  
+                    </li>
+                    <li class="gutterGroup">
+                        <label for="gutter">Gutter：</label>
+                        <input type="number"  id="gutter">
+                    </li>
+                </ul>          
+            </section>
+            <section class="layoutConfigure" id="conSquare">
+        		<ul >
+                    <li>
+                        <label for="size">Size：</label>
+                        <input type="number" id="size" >
+                    </li>
+
+                </ul>
+            </section>
+            <section class="layoutConfigure" id="conPuzzle" style="display:none;">
+                <ul><li></li> </ul>
+            </section>
+            <section class="layoutConfigure" id="conWaterfall" style="display:none;">
+                <ul >
+                    <li>
+                        <label for="Cols">Cols：</label>
+                        <input type="number" id="Cols" placeholder="">
+                    </li>
+
+                </ul>
+            </section>
+            <section class="layoutConfigure" id="conBarrel" style="display:none;">
+                <ul >
+                    <li>
+                        <label for="maxH">maxH：</label>
+                        <input type="number" id="maxH" >
+                    </li>
+                    <li>
+                        <label for="minNum">minNum：</label>
+                        <input type="number" id="minNum" >
+                    </li>
+                </ul>
+            </section>
+            <section id="intro">
+                <a href="https://github.com/perseveringman/pwbAlbum">查看源码</a>
+                <span>&copy;RyanChou 2016</span>
+            </section>
     	</aside>
     </main>
+    <section style="display: none;" class="fullscreen">
+        <img src="" alt="" class="fullPicture">
+        <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+        <a href="javascript:;" id="next" class="arrow">&gt;</a>
+    </section>
     <footer></footer>
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <script type="text/javascript" src="pwbAlbum.js" ></script>
-    <script type="text/javascript" >
-    function getRandomImg(argument) {
-        var randomColor = ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
-        var pWidth = (Math.random() * 6 + 2) *100;
-        var randomSize = (Math.random() * 6 + 2) * 100 + 'X' +
-            (Math.random() * 5 + 2) * 100;
-        var src = 'http://placehold.it/' + randomSize + '/' + randomColor + '/fff';
-        return src;
-    }
-
-    var imgs = [];
-    for (var i = 0; i < 1; i++) {
-        imgs.push(getRandomImg());
-    }
-    var options = {
-        layout: 'SQUARE',
-        images:[],
-        gutter:0,
-        boxSelector:'puzzleContainer',
-        photoSelector:'photoBox',
-        cols:4,
-        minH: 200,
-        maxH: 400,
-        minNum: 3,
-        maxNum: 6
-    }
-    options.images = imgs;
-    var pwbAlbum = new PwbAlbum(options);
-    pwbAlbum.setImage(imgs,options);
-    $('#addImage').click(function(){
-        var url = $('#imgUrl').val();
-        options.images.push(url);
-
-        pwbAlbum.setImage(imgs,options);
-        $('#imgUrl').val(getRandomImg());
-    });
-    $('#Cols').change(function(){
-        options.cols = $('#Cols').val();
-        pwbAlbum.setImage(imgs,options);
-    });
-    $('#square').click(function(){
-        options.layout = 'SQUARE';
-        pwbAlbum.setImage(imgs,options);
-    })
-    $('#puzzle').click(function(){
-        options.layout = 'PUZZLE';
-        pwbAlbum.setImage(imgs,options);
-    })    
-    $('#waterfall').click(function(){
-        options.layout = 'WATERFALL';
-        pwbAlbum.setImage(imgs,options);
-    })
-    $('#barrel').click(function(){
-        options.layout = 'BARREL';
-        pwbAlbum.setImage(imgs,options);
-    })
-    $('#gutter').change(function(){
-        if($('#gutter').val()>50){
-            alert('间距不能超过50！');
-            $('#gutter').val(50);
-        }
-        else if($('#gutter').val()<0){
-            alert('间距不能小于0！');
-            $('#gutter').val(0);
-        }
-        options.gutter = $('#gutter').val();
-        pwbAlbum.setImage(imgs,options);
-    })
-    $('#imgUrl').val(getRandomImg());
-    </script>
+    <script type="text/javascript" src="setting.js"></script>
 </body>
 </html>

@@ -96,7 +96,7 @@
         $boxes.addClass('photoBox waterfall');
         var cols = _option.cols;
         //去除间距后的父元素宽度
-        var parentW = $parent.width();
+        var parentW = $parent.width()-2*_option.gutter*cols;
         
         var boxW = parentW / cols;
         $boxes.css("width",boxW).css("height", "auto");
@@ -117,7 +117,7 @@
                 var getminH = Math.min.apply(null,hArr);
                 //得到当前最矮列的索引
                 var index = getIndex(hArr,getminH);
-                var left = index*boxW+"px";
+                var left = index*(boxW+2*_option.gutter)+"px";
                 //将当前图片放到该列下
                 $(ele).css("position","absolute").css("top",getminH+"px").css("left",left) ;
                 //该列高度增加
@@ -230,12 +230,6 @@
         });
         if(flag){
             self.setLayout(self.getLayout());
-        }
-        if(_option.isFullscreen){
-            self.enableFullscreen(_option.image);
-        }
-        else{
-            self.disableFullscreen();
         }
         // this.setLayout(_option.layout);
 
