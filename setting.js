@@ -28,13 +28,14 @@ var options = {
     minH: 200,
     maxH: 400,
     minNum: 3,
-    maxNum: 6
+    maxNum: 6,
+    size: 100
 }
 options.images = imgs;
 var pwbAlbum = new PwbAlbum(options);
 pwbAlbum.setImage(imgs,options);
 $('#fullscreen').change(function(){
-    options.isFullscreen = $('#fullscreen').val();
+    options.isFullscreen = $(this).val();
 
     pwbAlbum.setImage(imgs,options);
 })
@@ -49,7 +50,7 @@ $('#addImage').click(function(){
     }
 });
 $('#Cols').change(function(){
-    options.cols = $('#Cols').val();
+    options.cols = $(this).val();
     pwbAlbum.setImage(imgs,options);
 });
 $('#square').click(function(){
@@ -87,8 +88,6 @@ $('#waterfall').click(function(){
 $('#barrel').click(function(){
     $('#albumType li').removeClass('active');
     $(this).addClass('active');
-    $('#gutter').val(0);
-    options.gutter=0;  
     $('.layoutConfigure').hide();
     $('.gutterGroup').hide();
     $('#conBarrel').show();
@@ -96,23 +95,35 @@ $('#barrel').click(function(){
     pwbAlbum.setImage(imgs,options);
 })
 $('#gutter').change(function(){
-    if($('#gutter').val()>50){
+    if($(this).val()>50){
         alert('间距不能超过50！');
-        $('#gutter').val(50);
+        $(this).val(50);
     }
-    else if($('#gutter').val()<0){
+    else if($(this).val()<0){
         alert('间距不能小于0！');
-        $('#gutter').val(0);
+        $(this).val(0);
     }
-    options.gutter = $('#gutter').val();
+    options.gutter = $(this).val();
     pwbAlbum.setImage(imgs,options);
 })
 $('#maxH').change(function(){
-    options.maxH = $('#maxH').val();
+    options.maxH = $(this).val();
     pwbAlbum.setImage(imgs,options);
 })
 $('#minNum').change(function(){
-    options.minNum = $('#minNum').val();
+    options.minNum = $(this).val();
+    pwbAlbum.setImage(imgs,options);
+})
+$('#size').change(function(){
+    if($(this).val()>300){
+        alert('大小不能超过300！');
+        $(this).val(300);
+    }
+    else if($(this).val()<50){
+        alert('大小不能小于50！');
+        $(this).val(50);
+    }
+    options.size = $(this).val();
     pwbAlbum.setImage(imgs,options);
 })
 $('#imgUrl').val(getRandomImg());
