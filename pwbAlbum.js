@@ -44,7 +44,9 @@
         minH: 100,
         maxH: 300,
         minNum: 3,
-        maxNum: 6
+        maxNum: 6,
+        //方形属性
+        size: 100
     };
     /************* 以下是本库提供的公有方法 *************/
 
@@ -81,6 +83,8 @@
         $boxes.removeClass();
         $boxes.addClass('photoBox');
         $boxes.addClass('square');
+        $boxes.css('width',_option.size+'px').css('height',_option.size+'px');
+
      };
 
 
@@ -223,6 +227,7 @@
         _option.maxNum = opts.maxNum;
         _option.minNum = opts.minNum;
         _option.image = opts.images;
+        _option.size = opts.size;
         this.addImage(image);
         $(window).load(function(){
             self.setLayout(self.getLayout());
