@@ -87,6 +87,8 @@ $('#waterfall').click(function(){
 $('#barrel').click(function(){
     $('#albumType li').removeClass('active');
     $(this).addClass('active');
+    $('#gutter').val(0);
+    options.gutter=0;  
     $('.layoutConfigure').hide();
     $('.gutterGroup').hide();
     $('#conBarrel').show();
