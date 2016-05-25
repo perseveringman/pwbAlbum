@@ -1,0 +1,81 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-05-24 23:31:44
+ * @version $Id$
+ */
+body{
+	min-width: 1024px;
+	background: url(images/2.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	/* background: rgba(0,0,0,0.1); */
+}
+
+nav{
+
+	background-color: rgba(0,0,0,0.5);
+}
+nav h1{
+	font-size:18px;
+	font-weight: bold;
+	color: #fff;
+}
+article h1{
+	text-align: center;
+	font-size: 25px;
+	padding: 35px;
+}
+article #author{
+	display: block;
+	text-align: right;
+	margin-right: 17%;
+	margin-top: -5px;
+	font-size: 17px;
+	color:#eee;
+}
+article h2{
+	text-align: center;
+	font-size: 22px;
+	padding: 20px;
+}
+article h3{
+	font-size: 20px;
+	padding: 16px 0;
+}
+article h4{
+	font-size: 17px;
+	padding: 10px 0;
+}
+article pre{
+	font-size: 14px;
+	margin:0 auto -10px;
+}
+p{
+	text-indent: 2em;
+	font-size: 15px;
+	line-height: 2;
+}
+main{
+	width: 60%;	
+	margin:60px  auto ;
+	background-color:  rgba(0,0,0,0.5);
+	color:#eee;
+	border-radius: 20px;
+	padding:30px;
+	border:2px solid #ddd;
+	box-shadow:0 0 1px #ccc;
+}
+footer{
+	height: 60px;
+	background-color: rgba(0,0,0,0.5);
+}
+footer span{
+	display: block;
+	text-align: center;
+	line-height: 60px;
+	font-size: 16px;
+	color: #fff;
+}

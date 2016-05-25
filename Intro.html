@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Intro</title>
+<link rel="stylesheet" href="src/reset.css">
+<link href="src/nav.css" rel="stylesheet">
+<link rel="stylesheet" href="Intro.css">
+</head>
+<body>
+    <header >
+    	<div>
+    	<nav>
+    		<div id="nav_title">
+    			<a  href="index.html">pwbAlbum</a>
+    		</div>
+    		<div id="nav_list">
+    			<ul>
+    				<li> <a href="#"> Intro</a> </li>
+    				<li> <a href="setting.html"> Setting</a> </li>
+    			</ul>
+    		</div>
+    	</nav>
+    	</div>
+    </header>
+    <main>
+        <article>
+            <h1>pwbAlbum使用手册</h1>
+            <a href="https://github.com/perseveringman" id="author">Ryan Chou</a>
+            <h2>功能概述</h2>
+            <p>本应用作为这个多功能相册第三方库的一个可视化展示，通过调用pwbAlbum.js文件，配置数据接口能够实现方形布局、瀑布流布局、拼图布局、木桶布局，四种图片布局的切换，并可通过维护接口的数据来设置布局的一些属性。</p>
+            <h2>数据接口</h2>
+            <h3>1.接口介绍</h3>
+            <p>数据接口是一个对象（option），包含四种布局各自可配置的属性，这里给出option的默认值，具体的每项属性会在之后详细介绍。</p>
+            <pre>
+                var options = {
+                    layout: 'SQUARE',
+                    isFullscreen:true,
+                    images:[],
+                    gutter:0,
+                    cols:4,
+                    minH: 200,
+                    maxH: 400,
+                    minNum: 3,
+                    maxNum: 6,
+                    size: 100
+                }
+            </pre>
+            <h3>2.共有属性</h3>
+            <p>四种布局共有的属性有布局（layout）、图片（images）、间距（gutter）、是否全屏（isFullScreen）。</p>
+   
+            <p>布局（layout）：通过设置每个布局的layout属性（string类型），可以选择布局。</p>
+   
+            <p>图片（images）：通过维护图片的url地址（一个string类型的数组images），可以将图片准确地呈现出来。</p>
+   
+            <p>间距（gutter）：通过维护图片的间距（一个Number类型的gutter），可以调整图片之间的间距（暂时不支持木桶布局，努力修改中！）</p>
+           
+            <p>是否全屏（isFullScreen）：通过设置是否全屏（一个boolean值），可以设置全屏查看图片是否可用。</p>
+            <h3>3.方形布局（SQUARE）</h3>
+            <p>方形布局使每张图片都裁减为宽高比为1的方形图片，目前提供额外的一个大小属性（一个Number类型的size），可以调整图片的尺寸。</p>
+            <h3>4.拼图布局（PUZZLE）</h3>
+            <p>相对于其他三种布局，拼图布局比较特殊，由于是根据图片数量进行特定的布局，目前仅支持6张以下的图片。超出6张，会报一个警告框，用户可以在此设定自己想要的效果，本应用会回到默认的方形布局。
+                （拼图布局暂时没有提供额外的属性）</p>
+            <h3>5.瀑布流布局（WATERFALL）</h3>
+            <p>瀑布流布局是一种所有列等宽的布局，并且尽量保证每列图片的高度接近。目前提供额外的一个属性是列的数量属性（一个Number类型的cols）通过设置cols属性的值可以调整图片的列数。</p>
+            <h3>6.木桶布局（SQUARE）</h3>
+            <p>木桶布局是一种不定长也不定宽的布局，其保留每张图片的宽高比，并使每一行的宽度一致，高度相近。木桶布局提供额外的两个属性，分别是每行图片最小能放的数目（一个Number类型的minNum），和每行最大的高度（一个Number类型的maxH）。</p>
+            <h2>使用pwbAlbum的注意事项</h2>
+            <p>请先建立一个父元素用来盛放图片布局，并将父元素的id设置为'puzzleContainer',以保证图片成功显示在界面中。
+            </p>
+            <p>待更新...</p>
+        </article>
+
+    </main>
+    <footer>
+        <span>&copy;RyanChou 2016</span>
+    </footer>
+</body>
+</html>
