@@ -89,9 +89,11 @@ $('#barrel').click(function(){
     $('#albumType li').removeClass('active');
     $(this).addClass('active');
     $('.layoutConfigure').hide();
+    $('#gutter').val(0);
     $('.gutterGroup').hide();
     $('#conBarrel').show();
     options.layout = 'BARREL';
+    options.gutter = $('#gutter').val();
     pwbAlbum.setImage(imgs,options);
 })
 $('#gutter').change(function(){
@@ -107,10 +109,26 @@ $('#gutter').change(function(){
     pwbAlbum.setImage(imgs,options);
 })
 $('#maxH').change(function(){
+    if($(this).val()>400){
+        alert('大小不能超过400！');
+        $(this).val(400);
+    }
+    else if($(this).val()<200){
+        alert('大小不能小于200！');
+        $(this).val(200);
+    }
     options.maxH = $(this).val();
     pwbAlbum.setImage(imgs,options);
 })
 $('#minNum').change(function(){
+    if($(this).val()>6){
+        alert('大小不能超过6！');
+        $(this).val(6);
+    }
+    else if($(this).val()<3){
+        alert('大小不能小于3！');
+        $(this).val(3);
+    }
     options.minNum = $(this).val();
     pwbAlbum.setImage(imgs,options);
 })
