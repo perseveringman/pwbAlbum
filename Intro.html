@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title>Intro</title>
-    <link rel="stylesheet" href="dist/css/Intro_min.css">
+<meta charset="utf-8">
+<title>Intro</title>
+<link rel="stylesheet" href="css/Intro_min.css">
 </head>
-
 <body>
-    <header>
-        <div>
-            <nav>
-                <div id="nav_title">
-                    <a href="index.html">pwbAlbum</a>
-                </div>
-                <div id="nav_list">
-                    <ul>
-                        <li> <a href="#"> Intro</a> </li>
-                        <li> <a href="setting.html"> Setting</a> </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+    <header >
+    	<div>
+    	<nav>
+    		<div id="nav_title">
+    			<a  href="index.html">pwbAlbum</a>
+    		</div>
+    		<div id="nav_list">
+    			<ul>
+    				<li> <a href="#"> Intro</a> </li>
+    				<li> <a href="setting.html"> Setting</a> </li>
+    			</ul>
+    		</div>
+    	</nav>
+    	</div>
     </header>
     <main>
         <article>
@@ -48,15 +46,19 @@
             </pre>
             <h3>2.共有属性</h3>
             <p>四种布局共有的属性有布局（layout）、图片（images）、间距（gutter）、是否全屏（isFullScreen）。</p>
+   
             <p>布局（layout）：通过设置每个布局的layout属性（string类型），可以选择布局。</p>
+   
             <p>图片（images）：通过维护图片的url地址（一个string类型的数组images），可以将图片准确地呈现出来。</p>
+   
             <p>间距（gutter）：通过维护图片的间距（一个Number类型的gutter），可以调整图片之间的间距（暂时不支持木桶布局，努力修改中！）</p>
+           
             <p>是否全屏（isFullScreen）：通过设置是否全屏（一个boolean值），可以设置全屏查看图片是否可用。</p>
             <h3>3.方形布局（SQUARE）</h3>
             <p>方形布局使每张图片都裁减为宽高比为1的方形图片，目前提供额外的一个大小属性（一个Number类型的size），可以调整图片的尺寸。</p>
             <h3>4.拼图布局（PUZZLE）</h3>
-            <p>相对于其他三种布局，拼图布局比较特殊，由于是根据图片数量进行特定的布局，目前仅支持6张以下的图片。超出6张，会报一个警告框，用户可以在此设定自己想要的效果，本应用会回到默认的方形布局。 （拼图布局暂时没有提供额外的属性）
-            </p>
+            <p>相对于其他三种布局，拼图布局比较特殊，由于是根据图片数量进行特定的布局，目前仅支持6张以下的图片。超出6张，会报一个警告框，用户可以在此设定自己想要的效果，本应用会回到默认的方形布局。
+                （拼图布局暂时没有提供额外的属性）</p>
             <h3>5.瀑布流布局（WATERFALL）</h3>
             <p>瀑布流布局是一种所有列等宽的布局，并且尽量保证每列图片的高度接近。目前提供额外的一个属性是列的数量属性（一个Number类型的cols）通过设置cols属性的值可以调整图片的列数。</p>
             <h3>6.木桶布局（SQUARE）</h3>
@@ -66,10 +68,10 @@
             </p>
             <p>待更新...</p>
         </article>
+
     </main>
     <footer>
         <span>&copy;RyanChou 2016</span>
     </footer>
 </body>
-
 </html>
