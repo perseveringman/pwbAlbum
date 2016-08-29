@@ -1,0 +1,24 @@
+{
+  "name": "pwbalbum",
+  "version": "1.0.0",
+  "description": "本应用作为这个多功能相册第三方库的一个可视化展示，通过调用pwbAlbum.js文件，配置数据接口能够实现方形布局、瀑布流布局、拼图布局、木桶布局，四种图片布局的切换，并可通过维护接口的数据来设置布局的一些属性。 ## 数据接口 ### 1.接口介绍 数据接口是一个对象（option），包含四种布局各自可配置的属性，这里给出option的默认值，具体的每项属性会在之后详细介绍。                 var options = {                     layout: 'SQUARE',                     isFullscreen:true,                     images:[],                     gutter:0,                     cols:4,                     minH: 200,                     maxH: 400,                     minNum: 3,                     maxNum: 6,                     size: 100                 }",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perseveringman/pwbAlbum.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/perseveringman/pwbAlbum/issues"
+  },
+  "homepage": "https://github.com/perseveringman/pwbAlbum#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-minify-css": "^1.2.4"
+  }
+}
